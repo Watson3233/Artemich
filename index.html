@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Путь до РОСБИОТЕХ</title>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <style>
+        :root {
+            --vk-blue: #0077FF;
+            --bg-color: #EDEEF0;
+            --card-bg: #FFFFFF;
+            --text-primary: #000000;
+            --text-secondary: #818C99;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            padding: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .route-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .route-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #f0f2f5;
+            padding-bottom: 12px;
+        }
+
+        .route-title {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .route-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        .steps {
+            margin-bottom: 16px;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 12px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-num {
+            width: 24px;
+            height: 24px;
+            background: #E3F3FF;
+            color: var(--vk-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .step-text strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .photo {
+            aspect-ratio: 4/3;
+            background: #f0f2f5;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 11px;
+            padding: 4px;
+            text-align: center;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--vk-blue);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 12px;
+            text-decoration: none;
+        }
+
+        .btn:active {
+            opacity: 0.8;
+        }
+
+        .transport-badge {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #2E7D32;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 4px 0;
+        }
+
+        .walk-badge {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 20px 0;
+        }
+
+        .route-number {
+            display: inline-block;
+            background: var(--vk-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <h1>🎓 РОСБИОТЕХ</h1>
+            <p>Волоколамское шоссе, 11</p>
+        </div>
+
+        <!-- Маршрут 1: Метро Сокол -->
+        <div class="route-card">
+            <div class="route-header">
+                <div class="route-title">
+                    <span class="route-number">1</span>🚇 Метро Сокол
+                </div>
+                <div class="route-meta">
+                    <div>~2 мин на транспорте</div>
+                    <div>или 19 мин пешком</div>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <strong>Выход из метро</strong>
+                        Выйдите на Волоколамское шоссе.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <strong>🚌 Автобус/трамвай</strong>
+                        Сядьте на автобус <strong>м1, т70, е30, e30k, 412, 356</strong>.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <strong>Остановка «Гидропроект»</strong>
+                        Выйдите на остановке «Гидропроект» — здание РОСБИОТЕХ рядом.
+                    </div>
+                </div>
+            </div>
+
+            <div class="transport-badge">🚏 Остановка в 200 метрах от метро</div>
+
+            <div class="gallery">
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Метро+Сокол" alt="Метро Сокол">
+                    <div class="photo-caption">Метро Сокол</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Остановка" alt="Остановка">
+                    <div class="photo-caption">Остановка</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Волоколамское+шоссе" alt="Шоссе">
+                    <div class="photo-caption">Волоколамское шоссе</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Здание+РОСБИОТЕХ" alt="Здание">
+                    <div class="photo-caption">Вход в РОСБИОТЕХ</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Маршрут 2: Метро Щукинская -->
+        <div class="route-card">
+            <div class="route-header">
+                <div class="route-title">
+                    <span class="route-number">2</span>🚇 Метро Щукинская
+                </div>
+                <div class="route-meta">
+                    <div>~5 остановок</div>
+                    <div>20-30 минут</div>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <strong>Выход из метро</strong>
+                        Выйдите из метро и найдите трамвайную остановку.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <strong>🚃 Трамвай</strong>
+                        Сядьте на трамвай <strong>15, 31, 30</strong> или <strong>28</strong>.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <strong>Остановка «Университет РОСБИОТЕХ»</strong>
+                        Проедьте 5 остановок и выйдите на остановке «Университет РОСБИОТЕХ» или «Гидропроект».
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <strong>🎯 Здание №11</strong>
+                        Комплекс РОСБИОТЕХ находится рядом с остановкой.
+                    </div>
+                </div>
+            </div>
+
+            <div class="transport-badge">🚃 Трамвай идёт прямо до университета</div>
+
+            <div class="gallery">
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Метро+Щукинская" alt="Метро Щукинская">
+                    <div class="photo-caption">Метро Щукинская</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Трамвай+15+31" alt="Трамвай">
+                    <div class="photo-caption">Трамвай 15, 31, 28</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Остановка+РОСБИОТЕХ" alt="Остановка">
+                    <div class="photo-caption">Остановка РОСБИОТЕХ</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Корпус+11" alt="Корпус">
+                    <div class="photo-caption">Корпус РОСБИОТЕХ</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Маршрут 3: МЦК Стрешнево (НОВЫЙ - отдельный) -->
+        <div class="route-card">
+            <div class="route-header">
+                <div class="route-title">
+                    <span class="route-number">3</span>🚇 МЦК Стрешнево
+                </div>
+                <div class="route-meta">
+                    <div>~1.2 км</div>
+                    <div>15 минут пешком</div>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <strong>Выход со станции</strong>
+                        Выйдите из вестибюля МЦК Стрешнево.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <strong>🚶 Направление</strong>
+                        Двигайтесь в сторону Волоколамского шоссе через парк.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <strong>🌳 Через парк</strong>
+                        Пройдите по дорожкам парка Покровское-Стрешнево (живописный маршрут).
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <strong>🎯 Здание №11</strong>
+                        Выйдите к Волоколамскому шоссе — комплекс РОСБИОТЕХ будет перед вами.
+                    </div>
+                </div>
+            </div>
+
+            <div class="transport-badge walk-badge">🌳 Живописный маршрут через парк</div>
+
+            <div class="gallery">
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=МЦК+Стрешнево" alt="МЦК Стрешнево">
+                    <div class="photo-caption">МЦК Стрешнево</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Парк+Стрешнево" alt="Парк">
+                    <div class="photo-caption">Парк Покровское-Стрешнево</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Дорожка+в+парке" alt="Дорожка">
+                    <div class="photo-caption">Парковая дорожка</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Выход+к+шоссе" alt="Выход">
+                    <div class="photo-caption">Выход к шоссе</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Маршрут 4: МЦК Панфиловская (НОВЫЙ - отдельный) -->
+        <div class="route-card">
+            <div class="route-header">
+                <div class="route-title">
+                    <span class="route-number">4</span>🚇 МЦК Панфиловская
+                </div>
+                <div class="route-meta">
+                    <div>~900 метров</div>
+                    <div>12 минут пешком</div>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <strong>Выход со станции</strong>
+                        Выйдите из вестибюля МЦК Панфиловская.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <strong>🚶 Направление</strong>
+                        Двигайтесь в сторону Волоколамского шоссе по улице Панфилова.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <strong>🛤️ По тротуару</strong>
+                        Идите прямо около 800 метров по тротуару вдоль дороги.
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <strong>🎯 Здание №11</strong>
+                        Комплекс РОСБИОТЕХ будет справа по ходу движения.
+                    </div>
+                </div>
+            </div>
+
+            <div class="transport-badge walk-badge">🚶 Самый короткий пеший маршрут от МЦК</div>
+
+            <div class="gallery">
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=МЦК+Панфиловская" alt="МЦК Панфиловская">
+                    <div class="photo-caption">МЦК Панфиловская</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Улица+Панфилова" alt="Улица">
+                    <div class="photo-caption">Улица Панфилова</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Тротуар" alt="Тротуар">
+                    <div class="photo-caption">Путь к университету</div>
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/300x225?text=Корпус+11" alt="Корпус">
+                    <div class="photo-caption">Корпус РОСБИОТЕХ</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контакты -->
+        <div class="route-card" style="text-align: center;">
+            <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600;">📍 Адрес</p>
+            <p style="margin: 0 0 12px 0; font-size: 14px; color: var(--text-secondary);">
+                125080, г. Москва,<br>Волоколамское шоссе, д. 11
+            </p>
+            <p style="margin: 0 0 12px 0; font-size: 14px;">
+                📞 <a href="tel:+74997500111" style="color: var(--vk-blue); text-decoration: none;">+7 (499) 750-01-11</a><br>
+                ✉️ <a href="mailto:postupi@mgupp.ru" style="color: var(--vk-blue); text-decoration: none;">postupi@mgupp.ru</a>
+            </p>
+        </div>
+
+        <div class="footer">
+            Mini App • РОСБИОТЕХ • 2026
+        </div>
+    </div>
+
+    <script>
+        // Инициализация VK Bridge
+        vkBridge.send('VKWebAppInit');
+    </script>
+</body>
+</html>
